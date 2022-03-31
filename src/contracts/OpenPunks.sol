@@ -1457,7 +1457,7 @@ contract OpenPunks is ERC721Enumerable, Ownable {
             "Minting now allowed yet"
         );
 
-        require(balanceOf(msg.sender) == 0, "Only 1 mint per account");
+        require(balanceOf(msg.sender) == 1, "Only 2 mint per account");
 
         uint256 supply = totalSupply();
         require(!isPaused);
