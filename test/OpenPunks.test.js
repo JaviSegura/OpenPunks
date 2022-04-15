@@ -10,7 +10,7 @@ contract('OpenPunks', ([deployer, user]) => {
 
     const NAME = 'Open Punks'
     const SYMBOL = 'OP'
-    const COST = 0
+    const COST = 10000000000000000n;
     const MAX_SUPPLY = 1000
 
     // NOTE: If images are already uploaded to IPFS, you may choose to update the links, otherwise you can leave it be.
@@ -135,7 +135,7 @@ contract('OpenPunks', ([deployer, user]) => {
                     IPFS_HIDDEN_IMAGE_METADATA_URI,
                 )
 
-                result = await openPunks.mint(1, { from: user, value: web3.utils.toWei('0', 'ether') })
+                result = await openPunks.mint(1, { from: user, value: web3.utils.toWei('.01', 'ether') })
             })
 
             it('Returns the address of the minter', async () => {
@@ -171,7 +171,7 @@ contract('OpenPunks', ([deployer, user]) => {
 
             beforeEach(async () => {
                 // Some date in the future
-                const NFT_MINT_DATE = new Date("Mar 29, 2022 22:00:00").getTime().toString().slice(0, 10)
+                const NFT_MINT_DATE = new Date("Apr 118, 2022 12:00:00").getTime().toString().slice(0, 10)
 
                 openPunks = await OpenPunks.new(
                     NAME,
@@ -185,7 +185,7 @@ contract('OpenPunks', ([deployer, user]) => {
             })
 
             it('Attempt to mint before mint date', async () => {
-                await openPunks.mint(1, { from: user, value: web3.utils.toWei('0', 'ether') }).should.be.rejectedWith(EVM_REVERT)
+                await openPunks.mint(1, { from: user, value: web3.utils.toWei('0.01', 'ether') }).should.be.rejectedWith(EVM_REVERT)
             })
         })
     })

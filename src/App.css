@@ -63,7 +63,7 @@ h1 {
     font-family: "Gochi Hand";
     font-weight: 700;
     font-size: clamp(3rem, 10vw, 10rem);
-    transform: rotate(-4deg);
+    transform: rotate(-0deg);
     padding-left: .8em;
 }
 
@@ -81,8 +81,8 @@ h3 {
 .sub-header {
     font-family: "Gochi Hand";
     font-weight: 700;
-    font-size: clamp(2rem, 5vw, 4rem);
-    transform: rotate(-4deg) translateX(2.5em) translateY(-0.5em);
+    font-size: clamp(2rem, 5vw, 3rem);
+    transform: rotate(-0deg) translateX(2.5em) translateY(-0.5em);
     padding-left: .8em;
 }
 
@@ -151,7 +151,7 @@ a:hover {
 
 /* IMAGE STYLES */
 .App-logo {
-    max-width: 30px;
+    max-width: 40px;
     height: auto;
     margin: 0 10px;
 }

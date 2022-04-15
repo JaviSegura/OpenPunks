@@ -4,8 +4,8 @@ import Countdown from 'react-countdown'
 import Web3 from 'web3'
 
 // Import Images + CSS
-import twitter from '../images/socials/twitter.svg'
-import instagram from '../images/socials/instagram.svg'
+import github from '../images/socials/github.svg'
+import linkedin from '../images/socials/linkedin.svg'
 import opensea from '../images/socials/opensea.svg'
 import showcase from '../images/showcase.png'
 import '../App.css'
@@ -120,8 +120,8 @@ function App() {
 			return
 		}
 
-		if (ownerOf.length > 0) {
-			window.alert('You\'ve already minted!')
+		if (ownerOf.length > 2) {
+			window.alert('Thank you! You\'ve minted 3 NFTs!')
 			return
 		}
 
@@ -130,7 +130,7 @@ function App() {
 			setIsMinting(true)
 			setIsError(false)
 
-			await openPunks.methods.mint(1).send({ from: account, value: 0 })
+			await openPunks.methods.mint(1).send({ from: account, value: 10000000000000000 })
 				.on('confirmation', async () => {
 					const maxSupply = await openPunks.methods.maxSupply().call()
 					const totalSupply = await openPunks.methods.totalSupply().call()
@@ -171,27 +171,27 @@ function App() {
 
 					<Row className='header my-3 p-3 mb-0 pb-0'>
 						<Col xs={12} md={12} lg={8} xxl={8}>
-							<h1>Open Punks</h1>
-							<p className='sub-header'>Availble on 03 / 30 / 22</p>
+							<h1>Pixel Punks</h1>
+							<p className='sub-header'>Availble on 04 / 18 / 22</p>
 						</Col>
 						<Col className='flex social-icons'>
-							<a
-								href="#"
-								target='_blank'
-								className='circle flex button'>
-								<img src={twitter} alt="Twitter" />
-							</a>
-							<a
-								href="#"
-								target='_blank'
-								className='circle flex button'>
-								<img src={instagram} alt="Instagram" />
-							</a>
 							<a
 								href={`${openseaURL}/collection/${config.PROJECT_NAME}`}
 								target='_blank'
 								className='circle flex button'>
 								<img src={opensea} alt="Opensea" />
+							</a>
+							<a
+								href="https://github.com/JaviSegura/OpenPunks"
+								target='_blank'
+								className='circle flex button'>
+								<img src={github} alt="Github" />
+							</a>
+							<a
+								href="https://www.linkedin.com/in/javi-segura"
+								target='_blank'
+								className='circle flex button'>
+								<img src={linkedin} alt="LinkedIn" />
 							</a>
 						</Col>
 					</Row>
@@ -205,9 +205,10 @@ function App() {
 							/>
 						</Col>
 						<Col md={5} lg={4} xl={5} xxl={4}>
-							{revealTime !== 0 && <Countdown date={currentTime + (revealTime - currentTime)} className='countdown mx-3' />}
+						<h3>1,000 Pixel Punks NFT Collection</h3>
+							{/* {revealTime !== 0 && <Countdown date={currentTime + (revealTime - currentTime)} className='countdown mx-3' />} */}
 							<p className='text'>
-								By attending the masterclass, you'll learn how to generate NFT images, upload to IPFS, create your NFT contract, and use OpenSea!
+								Mint NFT for 0.01 ETH. 1,000 Generated NFT images are saved and uploaded to Pinata IPFS. Once minted, your newly created NFT contract is saved to Etherscan and available to view and sell on OpenSea!
 							</p>
 							<a href="#about" className='button mx-3'>Learn More!</a>
 						</Col>
@@ -230,7 +231,7 @@ function App() {
 									{revealTime !== 0 && <Countdown date={currentTime + (revealTime - currentTime)} className='countdown' />}
 									<ul>
 										<li>1,000 generated punked out images using an art generator</li>
-										<li>Free minting on Rinkeby testnet</li>
+										<li>Mint 3 NFTs on Rinkeby testnet for 0.01 ETH each</li>
 										<li>Viewable on Opensea shortly after minting</li>
 									</ul>
 
@@ -241,9 +242,29 @@ function App() {
 									)}
 
 									{ownerOf.length > 0 &&
-										<p><small>View your NFT on
+										<p><small>View your 1st NFT on
 											<a
 												href={`${openseaURL}/assets/${openPunks._address}/${ownerOf[0]}`}
+												target='_blank'
+												style={{ display: 'inline-block', marginLeft: '3px' }}>
+												OpenSea
+											</a>
+										</small></p>}
+
+									{ownerOf.length > 1 &&
+										<p><small>View your 2nd NFT on
+											<a
+												href={`${openseaURL}/assets/${openPunks._address}/${ownerOf[1]}`}
+												target='_blank'
+												style={{ display: 'inline-block', marginLeft: '3px' }}>
+												OpenSea
+											</a>
+										</small></p>}
+
+									{ownerOf.length > 2 &&
+										<p><small>View your 3rd NFT on
+											<a
+												href={`${openseaURL}/assets/${openPunks._address}/${ownerOf[2]}`}
 												target='_blank'
 												style={{ display: 'inline-block', marginLeft: '3px' }}>
 												OpenSea

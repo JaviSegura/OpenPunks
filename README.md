@@ -72,12 +72,12 @@ Create a .env file in the root directory of your project, and fill in the follow
 
 - PROJECT_NAME="YOUR_PROJECT_NAME"
 - PROJECT_SYMBOL="YOUR_PROJECT_SYMBOL"
-- MINT_COST=0
+- MINT_COST=10000000000000000 
 - MAX_SUPPLY=1000
 
 - IPFS_IMAGE_METADATA_CID="IPFS_CID"
 - IPFS_HIDDEN_IMAGE_METADATA_CID="IPFS_CID"
-- NFT_MINT_DATE="Oct 27, 2021 20:00:00"
+- NFT_MINT_DATE="Apr 15, 2022 14:00:00"
 
 ### 2. Run your migrations
 - For Rinkeby testnet: `truffle migrate --reset --network rinkeby`
